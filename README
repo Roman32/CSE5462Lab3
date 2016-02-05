@@ -20,4 +20,5 @@ ftpc will send file to the tcpd process, then the tcpd process will pass to trol
 Troll then sends the packets to a tcpd process running on another machine, where it is finally passed to
 ftps.  File is then stored in output file.
 
-Unfortunately I could not get it perfect.  There are always 16 bytes over on the end.
+Currently working. Fix was to make buffer receiving from troll 1016 bytes. Then with sendto to the server make buffer
+buffer+16 and bytes -16.
